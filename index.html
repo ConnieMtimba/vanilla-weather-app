@@ -17,97 +17,110 @@
       href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="src/stlye.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather Forecast</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <form class="search-form" id="search-form">
-          <div class="row">
-            <div class="col-8">
-              <input
-                class="form-control shadow-sm"
-                type="text"
-                id="city-input"
-                placeholder="Enter City"
-                autocomplete="off"
-                autofocus="on"
-              />
-            </div>
-            <div class="col-4">
-              <button
-                type="submit"
-                id="search-button"
-                class="btn btn-primary shadow-sm"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </form>
-        <div class="city-date-description">
-          <h1 id="city">Harare</h1>
-          <div class="date-weather">
-            <span id="date">Friday 11:16</span>
-            <br />
-            <span id="weather-description">Cloudy</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <div class="clearfix">
-              <img
-                src="images/cloud.png"
-                alt="cloudy icon"
-                class="weather-icon"
-              />
-              <span id="temperature">13</span>
-              <span class="units">
-                <a href="#" id="celsious">°C</a> |
-                <a href="#" id="fahrenheit">°F</a>
-              </span>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="humidity-wind">
-              <ul>
-                <li id="humidity">Humidity:</li>
-                <li id="wind">Wind:</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="card col-10">
-          <div class="card-body">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form class="search-form" id="search-form">
             <div class="row">
-              <div class="col-2">
-                <h5 class="card-title">Fri</h5>
-                <img src="images/cloud.png" />
-                <div class="forecast-temp">15°C</div>
+              <div class="col-8">
+                <input
+                  class="form-control shadow-sm"
+                  type="text"
+                  id="city-input"
+                  placeholder="Enter City"
+                  autocomplete="off"
+                  autofocus="on"
+                />
               </div>
-              <div class="col-2">
-                <h5 class="card-title">Sat</h5>
-                <img src="images/cloud.png" />
-                <div class="forecast-temp">15°C</div>
+              <div class="col-4">
+                <button
+                  type="submit"
+                  id="search-button"
+                  class="btn btn-primary shadow-sm"
+                >
+                  Search
+                </button>
               </div>
-              <div class="col-2">
-                <h5 class="card-title">Sun</h5>
-                <img src="images/cloud.png" />
-                <div class="forecast-temp">15°C</div>
+            </div>
+          </form>
+          <div class="overview">
+            <h1 id="city"></h1>
+            <ul></ul>
+            <li id="date">Friday 11:16</li>
+            <li id="weather-description"></li>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="d-flex weather-temperature">
+                <img
+                  src="images/cloud.png"
+                  alt="cloudy icon"
+                  class="weather-icon"
+                />
+                <div class="">
+                  <span id="temperature"></span>
+                  <span class="units">
+                    <a href="#" id="celsious">°C</a> |
+                    <a href="#" id="fahrenheit">°F</a>
+                  </span>
+                </div>
               </div>
-              <div class="col-2">
-                <h5 class="card-title">Mon</h5>
-                <img src="images/cloud.png" />
-                <div class="forecast-temp">15°C</div>
+            </div>
+            <div class="col-6">
+              <div class="humidity-wind">
+                <ul>
+                  <li>Humidity: <span id="humidity"></span>%</li>
+                  <li>Wind: <span id="wind"></span>Km/H</li>
+                </ul>
               </div>
-              <div class="col-2">
-                <h5 class="card-title">Tue</h5>
-                <img src="images/cloud.png" />
-                <div class="forecast-temp">15°C</div>
+            </div>
+          </div>
+          <div class="card col-10">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title">Fri</h5>
+                  <img src="images/cloud.png" />
+                  <div class="forecast-temp">15°C</div>
+                </div>
+                <div class="col">
+                  <h5 class="card-title">Sat</h5>
+                  <img src="images/cloud.png" />
+                  <div class="forecast-temp">15°C</div>
+                </div>
+                <div class="col">
+                  <h5 class="card-title">Sun</h5>
+                  <img src="images/cloud.png" />
+                  <div class="forecast-temp">15°C</div>
+                </div>
+                <div class="col">
+                  <h5 class="card-title">Mon</h5>
+                  <img src="images/cloud.png" />
+                  <div class="forecast-temp">15°C</div>
+                </div>
+                <div class="col">
+                  <h5 class="card-title">Tue</h5>
+                  <img src="images/cloud.png" />
+                  <div class="forecast-temp">15°C</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <small>
+          <a
+            href="https://github.com/ConnieMtimba/vanilla-weather-app"
+            target="_blank"
+          >
+            Open-source code,</a
+          >
+          by Confidence Mutimbanyoka
+        </small>
       </div>
     </div>
     <script src="src/index.js"></script>
