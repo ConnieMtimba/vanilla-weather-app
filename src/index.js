@@ -13,7 +13,7 @@ function formatDate(timestamp) {
     "Sunday",
     "Monday",
     "Tuesday",
-    "Wensday",
+    "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
@@ -70,10 +70,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "017d56650cd168d68067850318775d43";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -116,35 +114,9 @@ function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
-  console.log(cityInputElement.value);
 }
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiousLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheiTtemperature = (celsiousTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheiTtemperature);
-}
-
-function displayCelsiousTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiousLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(celsiousTemperature);
-}
-
-let celsiousTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiousLink = document.querySelector("#celsious-link");
-celsiousLink.addEventListener("click", displayCelsiousTemperature);
 
 search("Harare");
